@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+
+  padding-block: 2rem;
+
+  nav {
+    ul {
+      display: flex;
+      gap: 1rem;
+      > li {
+        a {
+          &.active {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+  .cto {
+    background-color: transparent;
+    color: var(--color-primary);
+
+    border: 1px solid currentColor;
+    border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    -ms-border-radius: var(--border-radius);
+    -o-border-radius: var(--border-radius);
+
+    margin-inline-start: auto;
+    padding: 0.5rem 1rem;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-primary-opposite);
+    }
+  }
+}
