@@ -43,6 +43,10 @@ html {
 body {
   background-color: var(--color-default-background);
   color: var(--color-default-foreground);
+  > * {
+  padding-inline: var(--full-width-padding-inline);
+
+  }
 }
 
 input,
