@@ -20,7 +20,6 @@ export default function RootLayout({
   return (
     <html className={`${vazirmatn.className}`} lang="fa" dir="rtl">
       <body>
-        <header>this is headere by erfan</header>
         {children}
       </body>
     </html>
