@@ -1,9 +1,8 @@
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
-import styles from "./page.module.css"
+import styles from "./page.module.css";
 import MyDoctorLogo from "@/logo/my-doctor.logo";
 export default async function Home() {
-
   return (
     <div className={styles.home}>
       <h1>
@@ -18,8 +17,6 @@ export default async function Home() {
           <li>قلب و عروق</li>
         </ul>
       </div>
-
     </div>
   );
-
 }

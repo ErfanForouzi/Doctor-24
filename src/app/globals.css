@@ -89,11 +89,10 @@ svg {
   max-inline-size: 100%;
 }
 
+.tagline {
+  background-color: var(--color-gray-16);
 
-.tagline{
-    background-color: var(--color-gray-16);
+  padding-block: 1rem;
 
-    padding-block: 1rem;
-
-    text-align: center;
+  text-align: center;
 }

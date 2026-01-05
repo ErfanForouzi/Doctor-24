@@ -4,7 +4,6 @@ import { Vazirmatn } from "next/font/google";
 import "@/styles/typography.css";
 import "./globals.css";
 
-
 import HeaderComponent from "@/components/header/header.component";
 import FooterComponent from "@/components/footer/footer.component";
 
@@ -27,9 +26,7 @@ export default function RootLayout({
     <html className={`${vazirmatn.className}`} lang="fa" dir="rtl">
       <body>
         <HeaderComponent />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <p className="tagline">
           نوبت دهی پزشکی، سامانه نوبت دهی اینترنتی بیمارستان و پزشکان
         </p>
