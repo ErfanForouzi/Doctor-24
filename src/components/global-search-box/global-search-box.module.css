@@ -15,7 +15,7 @@
   -o-border-radius: 999rem;
 
   .prefix {
-    font-size: 1.5rem;
+    font-size: var(--fz-500);
     align-items: center;
     display: grid;
   }
