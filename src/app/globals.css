@@ -43,8 +43,11 @@ html {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
+
   min-block-size: 100vh;
   min-block-size: 100dvh;
+
+  font-size: var(--fz-400);
 
   background-color: var(--color-default-background);
   color: var(--color-default-foreground);
@@ -86,11 +89,10 @@ svg {
   max-inline-size: 100%;
 }
 
+.tagline {
+  background-color: var(--color-gray-16);
 
-.tagline{
-    background-color: var(--color-gray-16);
+  padding-block: 1rem;
 
-    padding-block: 1rem;
-
-    text-align: center;
+  text-align: center;
 }

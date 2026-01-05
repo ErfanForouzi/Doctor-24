@@ -14,10 +14,9 @@ import MingcuteYoutubeFill from "@/icons/MingcuteYoutubeFill";
 import styles from "./footer.module.css";
 
 export default function FooterComponent(): ReactElement {
-    return (
- <footer className={styles.footer}>
+  return (
+    <footer className={styles.footer}>
       <div className={styles.writings}>
-        
         <div className={styles.logo}>دکتر من</div>
         <p className={styles.description}>
           تجربه مشاوره آنلاین و دریافت نوبت از بهترین پزشکان و بیمارستان‌های
@@ -71,5 +70,5 @@ export default function FooterComponent(): ReactElement {
         من می‌باشد!
       </p>
     </footer>
-    )
+  );
 }
