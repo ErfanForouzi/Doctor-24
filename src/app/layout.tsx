@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${vazirmatn.className}`} lang="fa" dir="rtl">
-      <body>
+      <body >
         <HeaderComponent />
         <main>{children}</main>
         <p className="tagline">
