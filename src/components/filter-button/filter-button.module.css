@@ -1,0 +1,35 @@
+.filter-button {
+  background-color: transparent;
+  color: inherit;
+
+  display: grid;
+  place-content: center;
+
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+  transition: background-color, color;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+
+  border: 1px solid currentColor;
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
+
+  &.active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-opposite);
+    border-color: var(--color-primary);
+  }
+  &:hover {
+    background-color: var(--color-primary-fade);
+    color: var(--color-primary-opposite);
+  }
+}
