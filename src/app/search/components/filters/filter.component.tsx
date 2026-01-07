@@ -6,7 +6,7 @@ import FilterButtonComponent from "@/components/filter-button/filter-button.comp
 import styles from "./filter.module.css"
 import { ReactElement, useContext } from "react";
 import { FilterContext } from "../../providers/filter.provider";
-import clsx from "clsx";
+
 import { FiltersType } from "../../types/filter.types";
 
 type Option = {

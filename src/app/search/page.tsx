@@ -3,9 +3,9 @@ import { ReactElement } from "react";
 import styles from "./page.module.css";
 import FilterComponent from "./components/filters/filter.component";
 import FilterProvider from "./providers/filter.provider";
+import ListComponent from "./components/list/list.component";
 
 
-const items = Array(100).fill(null).map((_, i) => i + 1)
 
 export default function Page(): ReactElement {
     return (
@@ -30,13 +30,7 @@ export default function Page(): ReactElement {
                         ]}
                 />
             </div>
-            <ul className={styles.results}>
-                {items.map((item) => (
-                    <li key={item}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
+          <ListComponent/>
         </div>
        </FilterProvider>
     )
