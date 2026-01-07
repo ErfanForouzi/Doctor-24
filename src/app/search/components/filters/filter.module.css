@@ -2,6 +2,7 @@
   .title {
     font-weight: 900;
   }
+
   .buttons {
     display: flex;
     flex-wrap: wrap;

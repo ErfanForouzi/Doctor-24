@@ -16,17 +16,17 @@ export default function Page(): ReactElement {
                     title="زوج یا فرد"
                     options={
                         [
-                            { label: "فرد", value: "odd" }
-                            , { label: "زوج", value: "even" }
+                            { label: "فرد", key: "odd" }
+                            , { label: "زوج", key: "even" }
                         ]}
                 />
                 <FilterComponent
                     title="بخش پذیر بودن"
                     options={
                         [
-                            { value: "3", label: "بخش پذیر بر 3" },
-                            { value: "5", label: "بخش پذیر بر 5" },
-                            { value: "7", label: "بخش پذیر بر 7" },
+                            { key: "three", label: "بخش پذیر بر 3" },
+                            { key: "five", label: "بخش پذیر بر 5" },
+                            { key: "seven", label: "بخش پذیر بر 7" },
                         ]}
                 />
             </div>
