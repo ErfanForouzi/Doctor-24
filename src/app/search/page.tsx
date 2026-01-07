@@ -1,14 +1,16 @@
 import { ReactElement } from "react";
 
 import styles from "./page.module.css";
-import FilterComponent from "./components/filter.component";
+import FilterComponent from "./components/filters/filter.component";
+import FilterProvider from "./providers/filter.provider";
 
 
 const items = Array(100).fill(null).map((_, i) => i + 1)
 
 export default function Page(): ReactElement {
     return (
-        <div className={styles.page}>
+       <FilterProvider>
+         <div className={styles.page}>
             <div className={styles.filters}>
                 <FilterComponent
                     title="زوج یا فرد"
@@ -19,10 +21,9 @@ export default function Page(): ReactElement {
                         ]}
                 />
                 <FilterComponent
-                    title="بخش پذیر بر 2"
+                    title="بخش پذیر بودن"
                     options={
                         [
-                            { value: "2", label: "بخش پذیر بر 2" },
                             { value: "3", label: "بخش پذیر بر 3" },
                             { value: "5", label: "بخش پذیر بر 5" },
                             { value: "7", label: "بخش پذیر بر 7" },
@@ -37,5 +38,6 @@ export default function Page(): ReactElement {
                 ))}
             </ul>
         </div>
+       </FilterProvider>
     )
 }
