@@ -10,7 +10,6 @@ import { ItemsContext } from "../../providers/items.provider";
 import styles from "./list.module.css";
 export default function ListComponent():ReactElement{
     const {filteredItems} = useContext(ItemsContext)
-    console.log([...filteredItems]);
     return(
           <ul className={styles.list}>
                 {filteredItems.map((item) => (

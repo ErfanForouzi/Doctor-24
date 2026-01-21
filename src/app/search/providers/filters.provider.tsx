@@ -1,5 +1,5 @@
 "use client"
-import { createContext, PropsWithChildren, useCallback, useState } from "react"
+import { createContext, PropsWithChildren, use, useCallback, useState } from "react"
 import { FiltersType } from "../types/filter.types"
 
 type ContextType = {
@@ -32,9 +32,9 @@ type Props = PropsWithChildren;
 export default function FilterProvider({ children }: Props) {
     const [filters, setFilters] = useState<FiltersType>({...defaultValues})
 
-    const changeFilter = <TKey extends keyof FiltersType>(key: TKey, value: FiltersType[TKey]): void => {
+    const changeFilter = useCallback(<TKey extends keyof FiltersType>(key: TKey, value: FiltersType[TKey]): void => {
         setFilters(old => ({ ...old, [key]: value }))
-    }
+    },[])
     const clearFilter = useCallback(<TKey extends keyof FiltersType>(key: TKey): void => {
         setFilters(old => {
             const clone = { ...old };
@@ -42,9 +42,9 @@ export default function FilterProvider({ children }: Props) {
             return clone
         })
     }, [])
-    const clearAll = (): void => {
+    const clearAll = useCallback((): void => {
         setFilters({...defaultValues})
-    }
+    },[])
 
     return (
         <FilterContext.Provider value={{ filters, changeFilter, clearFilter, clearAll }}>
