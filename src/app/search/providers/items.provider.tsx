@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { createContext } from "react";
-import { FilterContext } from "./filters.provider";
+import { FilterContext } from "./filters/filters.provider";
 
 type ContextType = {
   filteredItems: ItemType[];

@@ -2,7 +2,7 @@
 import CardComponent from "@/components/card/card.component";
 
 import { ReactElement, useContext } from "react";
-import { FilterContext } from "../../providers/filters.provider";
+import { FilterContext } from "../../providers/filters/filters.provider";
 import styles from "./remove-filter.module.css";
 
 import RemoveAllFilterButtonComponent from "@/components/remove-all-filter-button/remove-all-filter-button";
