@@ -1,43 +1,65 @@
 import { ReactElement } from "react";
 
-import styles from "./page.module.css";
 import FilterComponent from "./components/filters/filter.component";
-import FilterProvider from "./providers/filters.provider";
 import ListComponent from "./components/list/list.component";
-import { ItemsProvider } from "./providers/items.provider";
-import RemoveAllFilterButtonComponent from "../../components/remove-all-filter-button/remove-all-filter-button";
 import RemoveFilterComponent from "./components/remove-filter/remove-filter.component";
+import styles from "./page.module.css";
+import FilterProvider from "./providers/filters/filters.provider";
+import { FiltersType } from "@/types/filters.types";
 
-const items = Array(100)
-  .fill(null)
-  .map((_, i) => ({ value: i + 1 }));
-
-export default function Page(): ReactElement {
+type SearchParams = { [key: string]: string | string[] | undefined }
+type Props = {
+  searchParams: SearchParams
+}
+export default async function Page({ searchParams }: Props): Promise<ReactElement> {
+  const defaultFilters: FiltersType = generateDefaultFilters(await searchParams)
   return (
-    <FilterProvider>
-      <ItemsProvider items={items}>
-        <div className={styles.page}>
-          <div className={styles.filters}>
-            <RemoveFilterComponent title="حذف همه" />
-            <FilterComponent
-              title="زوج یا فرد"
-              options={[
-                { label: "فرد", key: "odd" },
-                { label: "زوج", key: "even" },
-              ]}
-            />
-            <FilterComponent
-              title="بخش پذیر بودن"
-              options={[
-                { key: "three", label: "بخش پذیر بر 3" },
-                { key: "five", label: "بخش پذیر بر 5" },
-                { key: "seven", label: "بخش پذیر بر 7" },
-              ]}
-            />
-          </div>
-          <ListComponent />
+    <FilterProvider defaultFilters={defaultFilters}>
+      <div className={styles.page}>
+        <div className={styles.filters}>
+          <RemoveFilterComponent title="حذف همه" />
+          <FilterComponent
+            title="زوج یا فرد"
+            options={[
+              { label: "فرد", key: "odd" },
+              { label: "زوج", key: "even" },
+            ]}
+          />
+          <FilterComponent
+            title="بخش پذیر بودن"
+            options={[
+              { key: "three", label: "بخش پذیر بر 3" },
+              { key: "five", label: "بخش پذیر بر 5" },
+              { key: "seven", label: "بخش پذیر بر 7" },
+            ]}
+          />
         </div>
-      </ItemsProvider>
+        <ListComponent />
+      </div>
     </FilterProvider>
   );
+}
+
+function generateDefaultFilters(searchParams: SearchParams): FiltersType {
+  const {
+    query,
+    expertise,
+    gender,
+    degree,
+  } = searchParams;
+
+  return {
+    query: normalizeFilter(query),
+    expertise: normalizeFilter(expertise),
+    degree: normalizeFilter(degree),
+    gender: normalizeFilter(gender)
+  }
+}
+
+function normalizeFilter(value: string | string[] | undefined): string | undefined {
+  if (Array.isArray(value)) {
+    return value[0]
+  }
+  return value
+
 }
