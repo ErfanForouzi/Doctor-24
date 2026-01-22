@@ -1,15 +1,36 @@
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
-
+import localFont from "next/font/local";
 import "@/styles/typography.css";
 import "./globals.css";
 
 import HeaderComponent from "@/components/header/header.component";
 import FooterComponent from "@/components/footer/footer.component";
 
-const vazirmatn = Vazirmatn({
-  subsets: ["latin", "arabic"],
+const yekanbakh = localFont({
   display: "swap",
+  src: [
+    {
+      path: "../../public/fonts/yekanbakh/YekanBakhFaNum-Light.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/yekanbakh/YekanBakhFaNum-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/yekanbakh/YekanBakhFaNum-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/yekanbakh/YekanBakhFaNum-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-yekanbakh",
 });
 
 export const metadata: Metadata = {
@@ -23,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${vazirmatn.className}`} lang="fa" dir="rtl">
-      <body >
+    <html className={`${yekanbakh.className}`} lang="fa" dir="rtl">
+      <body>
         <HeaderComponent />
         <main>{children}</main>
         <p className="tagline">

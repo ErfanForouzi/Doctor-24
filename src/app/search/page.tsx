@@ -8,38 +8,36 @@ import { ItemsProvider } from "./providers/items.provider";
 import RemoveAllFilterButtonComponent from "../../components/remove-all-filter-button/remove-all-filter-button";
 import RemoveFilterComponent from "./components/remove-filter/remove-filter.component";
 
-const items = Array(100).fill(null).map((_, i) => ({ value: i + 1 }))
-
+const items = Array(100)
+  .fill(null)
+  .map((_, i) => ({ value: i + 1 }));
 
 export default function Page(): ReactElement {
-    return (
-        <FilterProvider>
-            <ItemsProvider items={items}>
-                <div className={styles.page}>
-
-                    <div className={styles.filters}>
-                      <RemoveFilterComponent title="حذف همه"/>
-                        <FilterComponent
-                            title="زوج یا فرد"
-                            options={
-                                [
-                                    { label: "فرد", key: "odd" }
-                                    , { label: "زوج", key: "even" }
-                                ]}
-                        />
-                        <FilterComponent
-                            title="بخش پذیر بودن"
-                            options={
-                                [
-                                    { key: "three", label: "بخش پذیر بر 3" },
-                                    { key: "five", label: "بخش پذیر بر 5" },
-                                    { key: "seven", label: "بخش پذیر بر 7" },
-                                ]}
-                        />
-                    </div>
-                    <ListComponent />
-                </div>
-            </ItemsProvider>
-        </FilterProvider>
-    )
+  return (
+    <FilterProvider>
+      <ItemsProvider items={items}>
+        <div className={styles.page}>
+          <div className={styles.filters}>
+            <RemoveFilterComponent title="حذف همه" />
+            <FilterComponent
+              title="زوج یا فرد"
+              options={[
+                { label: "فرد", key: "odd" },
+                { label: "زوج", key: "even" },
+              ]}
+            />
+            <FilterComponent
+              title="بخش پذیر بودن"
+              options={[
+                { key: "three", label: "بخش پذیر بر 3" },
+                { key: "five", label: "بخش پذیر بر 5" },
+                { key: "seven", label: "بخش پذیر بر 7" },
+              ]}
+            />
+          </div>
+          <ListComponent />
+        </div>
+      </ItemsProvider>
+    </FilterProvider>
+  );
 }

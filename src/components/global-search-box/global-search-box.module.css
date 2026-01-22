@@ -1,4 +1,6 @@
 .global-search-box {
+  background-color: var(--color-surface-700);
+
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -15,24 +17,26 @@
   -o-border-radius: 999rem;
 
   .prefix {
-    font-size: var(--fz-500);
     align-items: center;
     display: grid;
+
+    font-size: 1.5em;
   }
   input {
     flex: 1 1 auto;
+
     border: none;
 
     background-color: transparent;
 
-    padding-inline: 1rem;
+    padding: 1rem;
 
     &:focus {
       outline: none;
     }
   }
   .divider {
-    background-color: var(--color-gray-20);
+    background-color: var(--color-border);
 
     block-size: 2em;
     inline-size: 1px;

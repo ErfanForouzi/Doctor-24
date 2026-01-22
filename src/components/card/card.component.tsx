@@ -1,12 +1,8 @@
 import { PropsWithChildren, ReactElement } from "react";
 
-type Props = PropsWithChildren
+type Props = PropsWithChildren;
 
 import styles from "./card.module.css";
 export default function CardComponent({ children }: Props): ReactElement {
-    return (
-        <div className={styles.card}>
-            {children}
-        </div>
-    )
+  return <div className={styles.card}>{children}</div>;
 }
