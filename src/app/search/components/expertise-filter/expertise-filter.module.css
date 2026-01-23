@@ -1,0 +1,19 @@
+.expertise-filter {
+  overflow: auto;
+
+  max-block-size: 20rem;
+
+  scrollbar-width: thin;
+
+  > li {
+    padding-inline-end: 1rem;
+
+    .button {
+      font-weight: 500;
+
+      justify-content: flex-start;
+
+      inline-size: 100%;
+    }
+  }
+}

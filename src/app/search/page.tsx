@@ -6,6 +6,8 @@ import FilterProvider from "./providers/filters/filters.provider";
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 import DoctorsProvider from "./providers/doctors/doctors.provider";
 import { doctors } from "@/mock/doctors";
+import FilterSummaryComponent from "./components/filter-summary/filters-summary.component";
+import ExpertiseFilterComponent from "./components/expertise-filter/expertise-filter.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -21,7 +23,8 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
             <GlobalSearchBoxComponent />
           </div>
           <div className={styles.filters}>
-            filters
+            <FilterSummaryComponent/>
+            <ExpertiseFilterComponent/>
           </div>
           <div className={styles.toolbar}>
             toolbar
