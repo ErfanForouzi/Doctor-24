@@ -1,11 +1,9 @@
 import { ReactElement } from "react";
 
-import FilterComponent from "./components/filters/filter.component";
-import ListComponent from "./components/list/list.component";
-import RemoveFilterComponent from "./components/remove-filter/remove-filter.component";
+import { FiltersType } from "@/types/filters.types";
 import styles from "./page.module.css";
 import FilterProvider from "./providers/filters/filters.provider";
-import { FiltersType } from "@/types/filters.types";
+import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -16,25 +14,18 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
   return (
     <FilterProvider defaultFilters={defaultFilters}>
       <div className={styles.page}>
-        <div className={styles.filters}>
-          <RemoveFilterComponent title="حذف همه" />
-          <FilterComponent
-            title="زوج یا فرد"
-            options={[
-              { label: "فرد", key: "odd" },
-              { label: "زوج", key: "even" },
-            ]}
-          />
-          <FilterComponent
-            title="بخش پذیر بودن"
-            options={[
-              { key: "three", label: "بخش پذیر بر 3" },
-              { key: "five", label: "بخش پذیر بر 5" },
-              { key: "seven", label: "بخش پذیر بر 7" },
-            ]}
-          />
+        <div className={styles.search}>
+          <GlobalSearchBoxComponent/>
         </div>
-        <ListComponent />
+        <div className={styles.filters}>
+          filters
+        </div>
+        <div className={styles.toolbar}>
+          toolbar
+        </div>
+        <div className={styles.results}>
+          results
+        </div>
       </div>
     </FilterProvider>
   );
