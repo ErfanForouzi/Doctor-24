@@ -20,7 +20,7 @@ type Props = PropsWithChildren & {
 
 export const FilterContext = createContext<Value>({
   filters: {},
-  dispatchFilters: () => void
+  dispatchFilters: ()=>{}
 });
 
 

@@ -4,6 +4,8 @@ import { FiltersType } from "@/types/filters.types";
 import styles from "./page.module.css";
 import FilterProvider from "./providers/filters/filters.provider";
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
+import DoctorsProvider from "./providers/doctors/doctors.provider";
+import { doctors } from "@/mock/doctors";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -13,20 +15,22 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
   const defaultFilters: FiltersType = generateDefaultFilters(await searchParams)
   return (
     <FilterProvider defaultFilters={defaultFilters}>
-      <div className={styles.page}>
-        <div className={styles.search}>
-          <GlobalSearchBoxComponent/>
+      <DoctorsProvider doctors={doctors}>
+        <div className={styles.page}>
+          <div className={styles.search}>
+            <GlobalSearchBoxComponent />
+          </div>
+          <div className={styles.filters}>
+            filters
+          </div>
+          <div className={styles.toolbar}>
+            toolbar
+          </div>
+          <div className={styles.results}>
+            results
+          </div>
         </div>
-        <div className={styles.filters}>
-          filters
-        </div>
-        <div className={styles.toolbar}>
-          toolbar
-        </div>
-        <div className={styles.results}>
-          results
-        </div>
-      </div>
+      </DoctorsProvider>
     </FilterProvider>
   );
 }
