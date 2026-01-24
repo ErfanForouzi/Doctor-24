@@ -56,13 +56,15 @@ function generateDefaultFilters(searchParams: SearchParams): FiltersType {
     expertise,
     gender,
     degree,
+    day
   } = searchParams;
 
   return {
     query: normalizeFilter(query),
     expertise: normalizeFilter(expertise),
     degree: normalizeFilter(degree),
-    gender: normalizeFilter(gender)
+    gender: normalizeFilter(gender),
+    day: normalizeFilter(day),
   }
 }
 
