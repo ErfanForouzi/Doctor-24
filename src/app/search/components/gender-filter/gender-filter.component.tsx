@@ -1,7 +1,16 @@
-import { ReactElement } from "react";
+"use client";
+
+import { ReactElement, useContext } from "react";
 import RadioFilterComponent from "../radio-filter/radio-filter.component";
+import { FilterContext } from "../../providers/filters/filters.provider";
 
 export default function GenderFilterComponent(): ReactElement {
+    const { filters, dispatchFilters } = useContext(FilterContext)
+
+    const changeHandler = (value: string): void => {
+        dispatchFilters({ type: "updated_filter", key: "gender", value })
+    }
+
     return (
         <RadioFilterComponent
             title="جنسیت پزشک"
@@ -10,8 +19,8 @@ export default function GenderFilterComponent(): ReactElement {
                 { value: "آقا", label: "آقا" },
                 { value: "خانم", label: "خانم" },
             ]}
-            // value={filters.gender}
-            // onChange={changeHandler}
+            value={filters.gender}
+            onChange={changeHandler}
         />
     )
 }
