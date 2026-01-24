@@ -16,7 +16,7 @@ export default function FiltersSummaryComponent(): ReactElement | null {
   const { filters, dispatchFilters } = useContext(FilterContext)
 
   const isEmpty = useMemo(() => {
-    return (!filters.degree && !filters.query && !filters.gender && !filters.expertise)
+    return (!filters.degree && !filters.query && !filters.gender && !filters.expertise && !filters.day)
   }, [filters])
 
   const removeAllButtonClickHandler = (): void => {
@@ -51,6 +51,20 @@ export default function FiltersSummaryComponent(): ReactElement | null {
           {filters.expertise && <li onClick={() => filterClickHandler("expertise")}> {filters.expertise}</li>}
           {filters.gender && <li onClick={() => filterClickHandler("gender")}> {filters.gender}</li>}
           {filters.degree && <li onClick={() => filterClickHandler("degree")}> {filters.degree}</li>}
+          {filters.day && <li onClick={() => filterClickHandler("day")}>
+            {
+            filters.day === "1" ?
+             "امروز"
+            : filters.day === "2" ?
+             "تا فردا"
+            : filters.day === "3" ?
+             "تا سه روز"
+            : filters.day === "5" ?
+             "تا پنج روز"
+            : filters.day === "7" ?
+             "تا هفت روز" :""
+            }
+            </li>}
 
         </ul>
       </div>
