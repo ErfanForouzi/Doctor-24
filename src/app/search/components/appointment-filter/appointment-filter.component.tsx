@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useContext, useState } from "react";
+import { ReactElement, useContext, useMemo, useState } from "react";
 
 import SelectComponent from "@/components/select/select.component";
 import { SelectOptionType } from "@/types/select-option.types";
@@ -17,13 +17,19 @@ const options: SelectOptionType[] = [
 ];
 
 export default function AppointmentFilterComponent(): ReactElement {
-    const { dispatchFilters } = useContext(FilterContext)
-    const [selectedOption, setSelectedOption] = useState<SelectOptionType>(options[0]);
+    const { dispatchFilters, filters } = useContext(FilterContext)
 
-    const handleSelectionOptionChange = (selectOption: SelectOptionType): void => {
-        setSelectedOption(selectOption)
-        dispatchFilters({ type: "updated_filter", key: "day", value: selectOption.value })
-    }
+    const selectedOption = useMemo(() => {
+        return options.find(option => option.value === filters.day) ?? options[0];
+    }, [filters])
+
+    const handleSelectionOptionChange = (option: SelectOptionType): void => {
+        dispatchFilters({
+            type: "updated_filter",
+            key: "day",
+            value: option.value,
+        });
+    };
 
     return (
         <SelectComponent
