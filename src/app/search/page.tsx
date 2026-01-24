@@ -10,6 +10,8 @@ import FilterSummaryComponent from "./components/filter-summary/filters-summary.
 import ExpertiseFilterComponent from "./components/expertise-filter/expertise-filter.component";
 import GenderFilterComponent from "./components/gender-filter/gender-filter.component";
 import DegreeFilterComponent from "./components/degree-filter/degree-filter.component";
+import SortComponent from "./components/sort/sort.component";
+import AppointmentFilterComponent from "./components/appointment-filter/appointment-filter.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -31,7 +33,8 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
             <DegreeFilterComponent/>
           </div>
           <div className={styles.toolbar}>
-            toolbar
+            <SortComponent/>
+            <AppointmentFilterComponent/>
           </div>
           <div className={styles.results}>
             results
