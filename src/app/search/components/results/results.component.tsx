@@ -13,7 +13,11 @@ export default function ResultsComponent(): ReactElement {
     const { filteredDoctors } = useContext(DoctorsContext)
     return (
         <ul className={styles.results}>
-            {filteredDoctors.map((doctor) => (
+            {filteredDoctors.length === 0 ?(
+                <div className={styles.empty}>
+                    دکتری با این مشخصات یافت نشد
+                </div>
+            ):filteredDoctors.map((doctor) => (
                 <li key={doctor.id}>
                     <div className={styles.header}>
                         <Link className={styles.image} href={`/doctor/${doctor.id}`}>
