@@ -1,22 +1,61 @@
 "use client"
 import { DoctorModel } from "@/models/doctor.model"
-import { createContext, PropsWithChildren } from "react"
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from "react"
+import { FilterContext } from "../filters/filters.provider"
 
 type ContextValue = {
-    filteredDoctors:DoctorModel[]
+  filteredDoctors: DoctorModel[]
 }
 type Props = PropsWithChildren & {
-    doctors:DoctorModel[]
+  doctors: DoctorModel[]
 }
 
 export const DoctorsContext = createContext<ContextValue>({
   filteredDoctors: [],
 });
 
-export default function DoctorsProvider({children,doctors}:Props){
+export default function DoctorsProvider({ children, doctors }: Props) {
+  const { filters } = useContext(FilterContext);
+
+  const [filteredDoctors, setFilteredDoctors] = useState<DoctorModel[]>([])
+
+  const isVisible = useCallback(
+    (doctor: DoctorModel) => {
+      return (
+        doesInclude(doctor.degree, filters.degree) &&
+        doesInclude(doctor.expertise, filters.expertise) &&
+        doesInclude(doctor.gender, filters.gender) &&
+        doesDoctorInclude(doctor, filters.query)
+      )
+    }
+    , [filters])
+
+  useEffect(() => {
+    setFilteredDoctors(doctors.filter(isVisible))
+  }, [doctors, isVisible])
+
   return (
-    <DoctorsContext.Provider value={{ filteredDoctors:doctors }}>
+    <DoctorsContext.Provider value={{ filteredDoctors }}>
       {children}
     </DoctorsContext.Provider>
   );
+}
+
+function doesDoctorInclude(doctor: DoctorModel, query?: string): boolean {
+  if (!query) {
+    return true
+  }
+  return doesSomeInclude([doctor.name, doctor.brief, doctor.address], query);
+}
+function doesSomeInclude(items: string[], query?: string): boolean {
+  if (!query) {
+    return true
+  }
+  return items.some((item) => doesInclude(item, query))
+}
+function doesInclude(item: string, query?: string): boolean {
+  if (!query) {
+    return true
+  }
+  return item.toLowerCase().includes(query.toLowerCase())
 }
