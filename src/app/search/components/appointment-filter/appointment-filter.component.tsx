@@ -1,32 +1,37 @@
 "use client";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext, useState } from "react";
 
 import SelectComponent from "@/components/select/select.component";
 import { SelectOptionType } from "@/types/select-option.types";
+import { FilterContext } from "../../providers/filters/filters.provider";
 
 
 const options: SelectOptionType[] = [
-  { value: "all", label: "هر زمان" },
-  { value: "today", label: "امروز" },
-  { value: "tomorrow", label: "تا فردا" },
-  { value: "inThreeDays", label: "تا سه روز" },
-  { value: "inFiveDays", label: "تا پنج روز" },
-  { value: "inSevenDays", label: "تا هفت روز" },
+    { value: "", label: "هر زمان" },
+    { value: "1", label: "امروز" },
+    { value: "2", label: "تا فردا" },
+    { value: "3", label: "تا سه روز" },
+    { value: "5", label: "تا پنج روز" },
+    { value: "7", label: "تا هفت روز" },
 ];
 
 export default function AppointmentFilterComponent(): ReactElement {
-  const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
-    options[0],
-  );
+    const { dispatchFilters } = useContext(FilterContext)
+    const [selectedOption, setSelectedOption] = useState<SelectOptionType>(options[0]);
 
-  return (
-    <SelectComponent
-      floating
-      title="نزدیک‌ترین نوبت"
-      options={options}
-      selectedOption={selectedOption}
-      onSelectedOptionChange={setSelectedOption}
-    />
-  );
+    const handleSelectionOptionChange = (selectOption: SelectOptionType): void => {
+        setSelectedOption(selectOption)
+        dispatchFilters({ type: "updated_filter", key: "day", value: selectOption.value })
+    }
+
+    return (
+        <SelectComponent
+            floating
+            title="نزدیک‌ترین نوبت"
+            options={options}
+            selectedOption={selectedOption}
+            onSelectedOptionChange={handleSelectionOptionChange}
+        />
+    );
 }

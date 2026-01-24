@@ -25,7 +25,8 @@ export default function DoctorsProvider({ children, doctors }: Props) {
         doesInclude(doctor.degree, filters.degree) &&
         doesInclude(doctor.expertise, filters.expertise) &&
         doesInclude(doctor.gender, filters.gender) &&
-        doesDoctorInclude(doctor, filters.query)
+        doesDoctorInclude(doctor, filters.query) &&
+        filterDay(doctor, filters.day) 
       )
     }
     , [filters])
@@ -58,4 +59,11 @@ function doesInclude(item: string, query?: string): boolean {
     return true
   }
   return item.toLowerCase().includes(query.toLowerCase())
+}
+function filterDay(doctor: DoctorModel, query?: string): boolean {
+  if (!query || query === "") {
+    return true
+  }
+  const dayTime = Number(query);
+  return doctor.firstAvailableAppointmentNumber! <= dayTime
 }

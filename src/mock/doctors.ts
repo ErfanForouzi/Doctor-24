@@ -38,6 +38,7 @@ export const doctors: DoctorModel[] = [
     degree: "متخصص",
     expertise: "عفونی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:3
   },
   {
     id: "b6ffbd14",
@@ -56,6 +57,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس ارشد",
     expertise: "زنان، زایمان و نازایی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:4
   },
   {
     id: "61ea57d2",
@@ -72,6 +74,7 @@ export const doctors: DoctorModel[] = [
     degree: "فلوشیپ",
     expertise: "قلب و عروق",
     badges: [],
+    firstAvailableAppointmentNumber:5
   },
   {
     id: "e408016a",
@@ -107,6 +110,7 @@ export const doctors: DoctorModel[] = [
     degree: "متخصص",
     expertise: "زنان، زایمان و نازایی",
     badges: [],
+    firstAvailableAppointmentNumber:2
   },
   {
     id: "973ef75f",
@@ -124,6 +128,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "تغذیه",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "99ee46ce",
@@ -140,6 +145,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "زنان، زایمان و نازایی",
     badges: ["منتخب پذیرش24", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "2b52cf72",
@@ -157,6 +163,7 @@ export const doctors: DoctorModel[] = [
     degree: "دکترای تخصصی",
     expertise: "طب سنتی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "baeeab42",
@@ -173,6 +180,7 @@ export const doctors: DoctorModel[] = [
     degree: "دکترای",
     expertise: "پزشک عمومی",
     badges: ["منتخب پذیرش24", "خوش برخورد", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "d476e2fd",
@@ -189,6 +197,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "زنان، زایمان و نازایی",
     badges: ["منتخب پذیرش24", "خوش برخورد", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "da8a5af6",
@@ -206,6 +215,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس ارشد",
     expertise: "زنان، زایمان و نازایی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "98577481",
@@ -222,6 +232,7 @@ export const doctors: DoctorModel[] = [
     degree: "دانشجوی تخصص",
     expertise: "جراحی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "8cec9d31",
@@ -239,6 +250,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس ارشد",
     expertise: "زنان، زایمان و نازایی",
     badges: ["منتخب پذیرش24", "خوش برخورد", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "97421b53",
@@ -256,6 +268,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس ارشد",
     expertise: "توانبخشی",
     badges: ["منتخب پذیرش24", "خوش برخورد", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "a70497d6",
@@ -273,6 +286,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "توانبخشی",
     badges: ["کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "2b8367b3",
@@ -289,6 +303,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "زنان، زایمان و نازایی",
     badges: ["منتخب پذیرش24", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "974248f5",
@@ -307,6 +322,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "زنان، زایمان و نازایی",
     badges: ["خوش برخورد", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "9ce1d81f",
@@ -323,6 +339,7 @@ export const doctors: DoctorModel[] = [
     degree: "دانشجوی تخصص",
     expertise: "مغز و اعصاب",
     badges: ["منتخب پذیرش24", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "56909296",
@@ -339,6 +356,7 @@ export const doctors: DoctorModel[] = [
     degree: "کارشناس",
     expertise: "زنان، زایمان و نازایی",
     badges: ["منتخب پذیرش24", "کمترین معطلی"],
+    firstAvailableAppointmentNumber:1
   },
   {
     id: "3f9b752a",
@@ -356,5 +374,6 @@ export const doctors: DoctorModel[] = [
     degree: "متخصص",
     expertise: "زنان، زایمان و نازایی",
     badges: [],
+    firstAvailableAppointmentNumber:2
   },
 ];

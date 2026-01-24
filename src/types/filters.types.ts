@@ -3,4 +3,5 @@ export type FiltersType = {
     expertise?:string,
     gender?:string,
     degree?:string,
+    day?:string
 }
