@@ -2,6 +2,8 @@
 import { DoctorModel } from "@/models/doctor.model"
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from "react"
 import { FilterContext } from "../filters/filters.provider"
+import { FiltersType } from "@/types/filters.types"
+import { useRouter, useSearchParams } from "next/navigation"
 
 type ContextValue = {
   filteredDoctors: DoctorModel[]
@@ -14,8 +16,11 @@ export const DoctorsContext = createContext<ContextValue>({
   filteredDoctors: [],
 });
 
+
 export default function DoctorsProvider({ children, doctors }: Props) {
   const { filters } = useContext(FilterContext);
+const router = useRouter();
+const searchParams = useSearchParams();
 
   const [filteredDoctors, setFilteredDoctors] = useState<DoctorModel[]>([])
 
@@ -34,6 +39,22 @@ export default function DoctorsProvider({ children, doctors }: Props) {
   useEffect(() => {
     setFilteredDoctors(doctors.filter(isVisible))
   }, [doctors, isVisible])
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) params.set(key, value);
+    });
+
+    const currentQuery = searchParams.toString();
+    const newQuery = params.toString();
+
+
+
+    if (newQuery !== currentQuery) {
+      router.replace(`?${newQuery}`, { scroll: false });
+    }
+  }, [filters,searchParams,router])
 
   return (
     <DoctorsContext.Provider value={{ filteredDoctors }}>
@@ -65,7 +86,7 @@ function filterDay(doctor: DoctorModel, query?: string): boolean {
     return true
   }
   const dayTime = Number(query);
-  
+
   if (!doctor.firstAvailableAppointmentNumber) { return false }
 
   return doctor.firstAvailableAppointmentNumber <= dayTime
