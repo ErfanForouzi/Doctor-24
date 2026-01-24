@@ -7,7 +7,17 @@
 
   > li {
     padding-inline-end: 1rem;
+    &.active {
+      button{
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        
+        &:hover{
+          background-color: var( --color-primary-darker);
 
+        }
+      }
+    }
     .button {
       font-weight: 500;
 
