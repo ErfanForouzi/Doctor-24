@@ -8,6 +8,7 @@ import DoctorsProvider from "./providers/doctors/doctors.provider";
 import { doctors } from "@/mock/doctors";
 import FilterSummaryComponent from "./components/filter-summary/filters-summary.component";
 import ExpertiseFilterComponent from "./components/expertise-filter/expertise-filter.component";
+import GenderFilterComponent from "./components/gender-filter/gender-filter.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -25,6 +26,7 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
           <div className={styles.filters}>
             <FilterSummaryComponent/>
             <ExpertiseFilterComponent/>
+            <GenderFilterComponent/>
           </div>
           <div className={styles.toolbar}>
             toolbar

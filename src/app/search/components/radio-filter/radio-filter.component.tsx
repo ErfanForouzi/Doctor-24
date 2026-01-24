@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeEvent, ReactElement } from "react";
 
 import styles from "./radio-filter.module.css";
