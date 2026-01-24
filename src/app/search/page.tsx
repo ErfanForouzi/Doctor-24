@@ -13,6 +13,7 @@ import DegreeFilterComponent from "./components/degree-filter/degree-filter.comp
 import SortComponent from "./components/sort/sort.component";
 import AppointmentFilterComponent from "./components/appointment-filter/appointment-filter.component";
 import StatsComponent from "./components/stats/stats.component";
+import ResultsComponent from "./components/results/results.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -41,7 +42,7 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
             </div>
           </div>
           <div className={styles.results}>
-            results
+            <ResultsComponent/>
           </div>
         </div>
       </DoctorsProvider>
