@@ -12,6 +12,7 @@ import GenderFilterComponent from "./components/gender-filter/gender-filter.comp
 import DegreeFilterComponent from "./components/degree-filter/degree-filter.component";
 import SortComponent from "./components/sort/sort.component";
 import AppointmentFilterComponent from "./components/appointment-filter/appointment-filter.component";
+import StatsComponent from "./components/stats/stats.component";
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = {
@@ -27,14 +28,17 @@ export default async function Page({ searchParams }: Props): Promise<ReactElemen
             <GlobalSearchBoxComponent />
           </div>
           <div className={styles.filters}>
-            <FilterSummaryComponent/>
-            <ExpertiseFilterComponent/>
-            <GenderFilterComponent/>
-            <DegreeFilterComponent/>
+            <FilterSummaryComponent />
+            <ExpertiseFilterComponent />
+            <GenderFilterComponent />
+            <DegreeFilterComponent />
           </div>
           <div className={styles.toolbar}>
-            <SortComponent/>
-            <AppointmentFilterComponent/>
+            <SortComponent />
+            <AppointmentFilterComponent />
+            <div className={styles.stats}>
+              <StatsComponent />
+            </div>
           </div>
           <div className={styles.results}>
             results
