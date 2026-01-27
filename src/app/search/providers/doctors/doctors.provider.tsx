@@ -2,7 +2,6 @@
 import { DoctorModel } from "@/models/doctor.model"
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from "react"
 import { FilterContext } from "../filters/filters.provider"
-import { FiltersType } from "@/types/filters.types"
 import { useRouter, useSearchParams } from "next/navigation"
 
 type ContextValue = {

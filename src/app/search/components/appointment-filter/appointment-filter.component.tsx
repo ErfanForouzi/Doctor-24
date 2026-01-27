@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useContext, useMemo, useState } from "react";
+import { ReactElement, useContext, useMemo } from "react";
 
 import SelectComponent from "@/components/select/select.component";
 import { SelectOptionType } from "@/types/select-option.types";

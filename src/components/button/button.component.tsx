@@ -55,7 +55,7 @@ export function ButtonLinkComponent({
   href,
   children,
   ...otherProps
-}: ButtonLinkComponentProps): ReactElement {
+}: LinkComponentProps): ReactElement {
   return (
     <Link
       href={href}
